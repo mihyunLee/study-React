@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h3 id="title">Total clicks: 0</h3>
+      <button>Click me</button>
+    </div>
+  </body>
+  <script>
+    const title = document.getElementById("title");
+    const button = document.querySelector("button");
+    let counter = 0;
+    const countUp = () => {
+      counter += 1;
+      title.innerText = `Total clicks: ${counter}`;
+    };
+    button.addEventListener("click", countUp);
+  </script>
+</html>
