@@ -33,13 +33,17 @@
         </button>
       );
     };
+    // 성능 최적화
+    // props로 동일한 결과를 렌더링하면 마지막으로 렌더링된 결과를 재사용한다.
+    const MemorisedBtn = React.memo(Btn);
+
     const App = () => {
       const [value, setValue] = React.useState("Save Changes");
       const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <Btn text={value} changeValue={changeValue} />
-          <Btn text="Continue" />
+          <MemorisedBtn text={value} changeValue={changeValue} />
+          <MemorisedBtn text="Continue" />
         </div>
       );
     };
