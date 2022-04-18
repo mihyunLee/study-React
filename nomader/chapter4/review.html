@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <!-- Babel cdn -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- JSX -->
+  <script type="text/babel">
+    // Btn Component
+    const Btn = ({ id, text, onClick }) => {
+      return (
+        <button
+          id={id}
+          onClick={onClick}
+          style={{
+            backgroundColor: "#FFC233",
+            marginRight: "5px",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+          }}
+        >
+          {text}
+        </button>
+      );
+    };
+
+    // Btn Prop Type
+    Btn.propTypes = {
+      id: PropTypes.number.isRequired, // id의 type은 number이며 필수 요소이다.
+      text: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+        .isRequired, // text의 type은 number나 string이며 필수 요소이다.
+      onClick: PropTypes.func, // onClick의 type은 function이며 선택적 요소이다.
+    };
+
+    // App Component
+    const App = () => {
+      const [value, setValue] = React.useState(0);
+      const [value2, setValue2] = React.useState(0);
+      const changeValue = (e) => {
+        if (e.target.id == 1) {
+          setValue((current) => current + 1);
+          return;
+        }
+        if (e.target.id == 2) {
+          setValue2((current) => current + 2);
+          return;
+        }
+      };
+      return (
+        <div>
+          <h1>Hello World!</h1>
+          <Btn id={1} text={value} onClick={changeValue} />
+          <Btn id={2} text={value2} onClick={changeValue} />
+        </div>
+      );
+    };
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</html>
