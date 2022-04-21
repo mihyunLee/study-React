@@ -1,9 +1,10 @@
-import ToDoList from "./ToDoList";
+import CoinTracker from "./CoinTracker";
+//import ToDoList from "./ToDoList";
 
 function App() {
   return (
     <div>
-      <ToDoList />
+      <CoinTracker />
     </div>
   );
 }
