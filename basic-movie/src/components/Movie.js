@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Movie = ({ id, title, year, coverImage, genres }) => {
+const Movie = ({ id, title, year, state, genres }) => {
   return (
     <div>
       <h2>
@@ -9,22 +9,18 @@ const Movie = ({ id, title, year, coverImage, genres }) => {
           {title}({year})
         </Link>
       </h2>
-      <img src={coverImage} alt="movie_image" />
-      <ul>
-        {genres.map((g) => (
-          <li key={g}>{g}</li>
-        ))}
-      </ul>
+      <button>{state}</button>
+      <p>{genres}</p>
     </div>
   );
 };
 
 Movie.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  coverImage: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  year: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  genres: PropTypes.string.isRequired,
 };
 
 export default Movie;

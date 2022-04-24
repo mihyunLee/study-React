@@ -4,14 +4,17 @@ import Movie from "../components/Movie";
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+
+  const API_KEY = "dd2ce150186e2db84976f01c898f68df";
+
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+        `http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${API_KEY}&itemPerPage=50`
       )
     ).json();
 
-    setMovies(json.data.movies);
+    setMovies(json.movieListResult.movieList);
     setLoading(false);
   };
   useEffect(() => {
@@ -26,12 +29,12 @@ const Home = () => {
         <div>
           {movies.map((movie) => (
             <Movie
-              key={movie.id}
-              id={movie.id}
-              title={movie.title}
-              year={movie.year}
-              coverImage={movie.medium_cover_image}
-              genres={movie.genres}
+              key={movie.movieCd}
+              id={movie.movieCd}
+              title={movie.movieNm}
+              year={movie.prdtYear}
+              state={movie.prdtStatNm}
+              genres={movie.genreAlt}
             />
           ))}
         </div>
