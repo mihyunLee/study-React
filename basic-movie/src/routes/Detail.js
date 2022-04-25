@@ -7,16 +7,11 @@ const Detail = () => {
   const [loading, setLoading] = useState(true);
   const [movie, setMovie] = useState([]);
 
-  const API_KEY = "dd2ce150186e2db84976f01c898f68df";
-
   const getMovie = useCallback(async () => {
     const json = await (
-      await fetch(
-        `	http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=${API_KEY}&movieCd=${id}`
-      )
+      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
-    setMovie(json.movieInfoResult.movieInfo);
-    console.log(json.movieInfoResult.movieInfo);
+    setMovie(json.data.movie);
     setLoading(false);
   }, [id]);
   useEffect(() => {
@@ -30,24 +25,17 @@ const Detail = () => {
       ) : (
         <div>
           <h2>
-            {movie.movieNm} ({movie.prdtYear})
+            {movie.title} ({movie.year})
           </h2>
-          {movie.genres.map((g) => (
-            <span key={g.genreNm}>{g.genreNm} | </span>
-          ))}
-          <p>Runnig Time: {movie.showTm}minutes</p>
+          <img src={movie.medium_cover_image} alt="movie" />
           <p>
-            Nation :{" "}
-            {movie.nations.map((n) => (
-              <span>{n.nationNm}</span>
+            {movie.genres.map((g) => (
+              <span key={g}>{g} | </span>
             ))}
           </p>
-          <p>
-            Actros:{" "}
-            {movie.actors.map((a) => (
-              <span>{a.peopleNm} | </span>
-            ))}
-          </p>
+          <p>Runnig Time: {movie.runtime}minutes</p>
+          <p>Rating: ⭐{movie.rating}</p>
+          <p>{movie.description_full}</p>
         </div>
       )}
     </div>
