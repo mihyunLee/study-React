@@ -41,7 +41,9 @@ const getStringDate = (date) => {
 const DiaryEditor = () => {
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
-  const [date, setDate] = useState(getStringDate(new Date()));
+  const [date, setDate] = useState(
+    getStringDate(new Date(+new Date() + 3240 * 10000))
+  );
 
   const { onCreate } = useContext(DiaryDispatchContext);
 

@@ -39,6 +39,12 @@ export const DiaryDispatchContext = React.createContext();
 
 const dummyData = [
   {
+    id: 0,
+    emotion: 2,
+    content: "추가한 일기",
+    date: 1654008417998,
+  },
+  {
     id: 1,
     emotion: 2,
     content: "1번 일기",
