@@ -24,7 +24,7 @@ const reducer = (state, action) => {
     }
     case "EDIT": {
       newState = state.map((it) =>
-        it.id === action.data.id ? { ...action.data } : it
+        it.id === action.data.id ? action.data : it
       );
       break;
     }
@@ -79,7 +79,7 @@ const dummyData = [
 function App() {
   const [data, dispatch] = useReducer(reducer, dummyData);
 
-  const dataId = useRef(0);
+  const dataId = useRef(6);
 
   //CREATE
   const onCreate = (date, content, emotion) => {
@@ -101,7 +101,7 @@ function App() {
   //EDIT
   const onEdit = (targetId, date, content, emotion) => {
     dispatch({
-      type: "Edit",
+      type: "EDIT",
       data: {
         id: targetId,
         date: new Date(date).getTime(),
