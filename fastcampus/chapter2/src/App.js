@@ -1,4 +1,4 @@
-import Extraction from "./components/Extraction";
+import Extraction from "./components/2-4.Props/Extraction";
 
 function App() {
   return (
