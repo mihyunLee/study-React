@@ -1,11 +1,9 @@
-import State from "./components/3-3.Hooks/State";
-import Reducer from "./components/3-3.Hooks/Reducer";
+import WelcomeDialog from "./components/3-5.Composition/WelcomeDialog";
 
 function App() {
   return (
     <div className="App">
-      <State />
-      <Reducer />
+      <WelcomeDialog />
     </div>
   );
 }
