@@ -23,6 +23,11 @@ function CommentItem({ title, content, likes, onClick }) {
     alert(`${title} clicked`);
   };
 
+  // 계산된 특정 "값"을 memoization 할 때는 useMemo를 사용한다.
+  // useMemo를 사용하기 전에는 click되어 컴포넌트의 상태가 변경되었을 때
+  // 변경된 상태의 CommentItem이 다시 렌더링 되었다.
+  // useMemo를 사용하면 clickedCount가 변경되고 rate check를 하여 rate 값만 적용할 뿐
+  // 클릭된 CommentItem이 리렌더링 되지 않는다.
   const rate = useMemo(() => {
     console.log("rate check");
     return likes > 10 ? "Good" : "bad";
