@@ -1,11 +1,9 @@
-import Input from "./components/3-7.HOC/Input";
-import Button from "./components/3-7.HOC/Button";
+import Memo from "./components/3-8.Memoization/Memo";
 
 function App() {
   return (
     <div className="App">
-      <Input />
-      <Button />
+      <Memo />
     </div>
   );
 }
