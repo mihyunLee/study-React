@@ -1,9 +1,9 @@
-import DayjsExample from "./components/Dayjs/DayjsExample";
+import DateFnsExample from "./components/Date-fns/DateFnsExample";
 
 function App() {
   return (
     <div className="App">
-      <DayjsExample />
+      <DateFnsExample />
     </div>
   );
 }
