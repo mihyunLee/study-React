@@ -1,10 +1,10 @@
 import "./App.css";
-import EmotionExmaple from "./components/Emotion/EmotionExmaple";
+import SassExample from "./components/SassComponent/SassExample";
 
 function App() {
   return (
     <div className="App">
-      <EmotionExmaple />
+      <SassExample />
     </div>
   );
 }

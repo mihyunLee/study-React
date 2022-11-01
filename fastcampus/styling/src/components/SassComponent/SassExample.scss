@@ -1,0 +1,115 @@
+// @import를 대체하여 @use를 사용한다.
+// (3) Modules: scss를 모듈처럼 분리하고 가져와 사용할 수 있다.
+@use "./fondation/base";
+// (6) Operator
+@use "sass:math";
+
+// (1) Variable: css 값을 변수로 두어 사용할 수 있다.
+$font-stack: Helvetica, sans-serif;
+$primary-color: red;
+
+.font {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.big-font {
+  font: 100% $font-stack;
+  font-size: large;
+}
+
+// (2) Nesting: 중첩된 부분을 계층 구조를 갖게 할 수 있다.
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+// (3) Modules: 분리한 scss 파일의 variables를 가져와 사용하기
+.inverse {
+  background-color: base.$primary-color;
+  color: white;
+}
+
+// (4) Mixin: 중복되는 스타일 코드를 함수처럼 인자에 값을 전달받는다.
+// Mixin에 이름을 지정하여 반환된 스타일을 사용할 수 있다.
+@mixin theme($theme: DarkGray) {
+  background: $theme;
+  box-shadow: 0 0 1px rgba($theme, 0.25);
+  color: #fff;
+}
+
+.info {
+  @include theme;
+}
+.alert {
+  @include theme($theme: DarkRed);
+}
+.success {
+  @include theme($theme: DarkGreen);
+}
+
+// (5) Extend/Inheritance
+// 공통된 부분을 하나의 스타일로 만들어서 각 클래스에 @extend로 사용한다.
+// 확장해서 스타일을 사용할 수 있다.
+// Mixin은 소스 코드의 중복을 위해 사용하는 반면 Extend는 연관성 있는 규칙을 만들기 위해 사용한다.
+// Extend를 사용하면, css로 컴파일 될 때 연관된 코드라고 생각되어 스타일이 한 곳에 모이게 된다.
+
+/* This CSS will print because %message-shared is extended. */
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// This CSS won't print because %equal-heights is never extended.
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success2 {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+
+// (6) Operator
+// @use "sass:math" 로 css에 연산을 사용할 수 있다.
+.container {
+  display: flex;
+}
+
+article[role="main"] {
+  width: math.div(600px, 960px) * 100%;
+}
+
+aside[role="complementary"] {
+  width: math.div(300px, 960px) * 100%;
+  margin-left: auto;
+}
