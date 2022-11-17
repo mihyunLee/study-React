@@ -6,8 +6,8 @@
 - 예를 들어 API가 개발되기 전까지 프론트엔드 개발을 진행하지 못하는 경우가 발생할 수 있다.
 
 ## 🔔모킹 라이브러리 - MSW.js
-> MSW(Mock Service Worker)
-> API Mocking 라이브러리로 서버의 네트워크 요청을 가로채서 모의 응답을 보내준다.
+> **MSW(Mock Service Worker)** <br />
+> : API Mocking 라이브러리로 서버의 네트워크 요청을 가로채서 모의 응답을 보내준다.
 - MSW는 Service Worker API로 HTTP 요청을 가로채서 응답을 보내준다.
 - Service Worker란 웹 응용 프로그램, 브라우저, 그리고 네트워크 사이의 프록시 서버 역할을 한다.
 - 푸시 알림과 백그라운드 동기화에 주로 사용된다.
