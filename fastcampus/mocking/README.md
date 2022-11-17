@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+## ✏️모킹(Mocking)이란?
+모의 데이터(Mock)을 만들어서 활용하는 방식이다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🤔모킹을 해야하는 이유
+- 프론트엔드 개발을 할 때 백엔드 개발에 의존하게 되면 비효율적인 개발 과정을 거치게 된다.
+- 예를 들어 API가 개발되기 전까지 프론트엔드 개발을 진행하지 못하는 경우가 발생할 수 있다.
 
-## Available Scripts
+## 🔔모킹 라이브러리 - MSW.js
+> MSW(Mock Service Worker)
+> API Mocking 라이브러리로 서버의 네트워크 요청을 가로채서 모의 응답을 보내준다.
+- MSW는 Service Worker API로 HTTP 요청을 가로채서 응답을 보내준다.
+- Service Worker란 웹 응용 프로그램, 브라우저, 그리고 네트워크 사이의 프록시 서버 역할을 한다.
+- 푸시 알림과 백그라운드 동기화에 주로 사용된다.
+- REST API와 GrapQL을 지원한다.
 
-In the project directory, you can run:
+## ⚙️ MSW 동작 원리
+![image](https://user-images.githubusercontent.com/51310674/202366658-1b66e659-5f2d-4d26-9d4e-0d662e0e6d60.png)
+- 브라우저에서 요청을 보내면 Service Worker가 이를 가로챈다.
+- Service Worker에서는 해당하는 요청을 복제해서 MSW에 전달하고, MSW는 요청과 일치하는 응답을 생성하여 모의 응답을 Service Worker에 전달한다.
+- Service Worker는 모의 응답을 브라우저에게 전달한다.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔗 Reference
+- [Mocking이란](https://tech.kakao.com/2021/09/29/mocking-fe/)
+- [Service Worker API](https://developer.mozilla.org/ko/docs/Web/API/Service_Worker_API)
