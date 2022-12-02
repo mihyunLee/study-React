@@ -1,14 +1,15 @@
 import "./App.css";
-import Counter2 from "./components/Counter2";
-import TestMocking from "./components/TestMocking";
-import Counter from "./features/counter/Counter";
+import { observableTodoStore } from "./app/ObservableTodoStore";
+import MobXExample from "./components/MobXExample";
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
     <div className="App">
-      <TestMocking />
-      <Counter />
-      <Counter2 />
+      <MobXExample />
+      <br />
+      <br />
+      <TodoList store={observableTodoStore} />
     </div>
   );
 }
