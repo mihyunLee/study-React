@@ -4,7 +4,13 @@ import "./App.css";
 import Example from "./components/ReactQueryExample/Example";
 import QuickStart from "./components/ReactQueryExample/QuickStart";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
   return (

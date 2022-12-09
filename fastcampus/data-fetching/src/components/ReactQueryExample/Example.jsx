@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import GlobalLoader from "./GlobalLoader";
 
 export default function Example() {
   const { isLoading, error, data } = useQuery({
@@ -16,6 +17,7 @@ export default function Example() {
 
   return (
     <div>
+      <GlobalLoader />
       <h1>{data.name}</h1>
       <p>{data.description}</p>
       <strong>👀 {data.subscribers_count}</strong>{" "}
