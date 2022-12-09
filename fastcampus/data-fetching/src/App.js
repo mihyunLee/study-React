@@ -1,16 +1,19 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./App.css";
-import Profile from "./components/SWRExample/Profile";
-import Cache from "./components/SWRExample/Cache";
-import Fetcher from "./components/SWRExample/Fetcher";
-import Mutate from "./components/SWRExample/Mutate";
+import Example from "./components/ReactQueryExample/Example";
+import QuickStart from "./components/ReactQueryExample/QuickStart";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <Profile />
-      <Cache />
-      <Fetcher />
-      <Mutate />
+      <QueryClientProvider client={queryClient}>
+        <QuickStart />
+        <Example />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </div>
   );
 }
