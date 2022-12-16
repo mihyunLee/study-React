@@ -1,4 +1,4 @@
-import { ApolloClient, ApolloProvider, gql } from "@apollo/client";
+import { ApolloClient, ApolloProvider } from "@apollo/client";
 import { cache } from "./cache";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -10,22 +10,6 @@ const client = new ApolloClient({
   cache,
   uri: "http://localhost:4000/graphql",
 });
-
-// Test query 보내보기
-client
-  .query({
-    query: gql`
-      query TestQuery {
-        launch(id: 60) {
-          id
-          mission {
-            name
-          }
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
 
 // Initialize ApolloClient
 injectStyles();
